@@ -1,9 +1,12 @@
 <form (ngSubmit)="submit()" [formGroup]="contactForm">
     <div>
         <input type="text" placeholder="Nome" formControlName="name">
+        <p *ngIf="contactForm.get('name')?.errors?.['required'] && contactForm.get('name')?.value !== null">O nome é obrigatório.</p>
     </div>
     <div>
         <input type="email" placeholder="E-mail" formControlName="email">
+        <p *ngIf="contactForm.get('email')?.errors?.['required'] && contactForm.get('email')?.value !== null">O e-mail é obrigatório.</p>
+        <p *ngIf="contactForm.get('email')?.errors?.['email']">Forneça um e-mail válido.</p>
     </div>
     <div>
         <select formControlName="theme">
@@ -12,6 +15,7 @@
             <option value="front-end">Front-end</option>
             <option value="back-end">Back-end</option>
         </select>
+        <p *ngIf="contactForm.get('theme')?.errors?.['required'] && contactForm.get('theme')?.dirty">O tema é obrigatório.</p>
     </div>
     <button type="submit">Cadastrar</button>
 </form>    
