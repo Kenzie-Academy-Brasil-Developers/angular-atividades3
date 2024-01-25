@@ -1,0 +1,17 @@
+<form (ngSubmit)="submit()" [formGroup]="contactForm">
+    <div>
+        <input type="text" placeholder="Nome" formControlName="name">
+    </div>
+    <div>
+        <input type="email" placeholder="E-mail" formControlName="email">
+    </div>
+    <div>
+        <select formControlName="theme">
+            <option value="">Selecione um tema</option>
+            <option value="uiux">UI/UX</option>
+            <option value="front-end">Front-end</option>
+            <option value="back-end">Back-end</option>
+        </select>
+    </div>
+    <button type="submit">Cadastrar</button>
+</form>    
